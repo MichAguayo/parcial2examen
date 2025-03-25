@@ -25,6 +25,12 @@ export class HomePage implements OnInit {
     this.calificaciones$ = this.calificacionService.getCalificaciones(); // Obtener tareas desde Firestore
   }
 
+
+
+
+
+
+
   addCalificacion() {
     if (this.calificacionesText.trim()) {
       const newCalificacion: Calificacion = { title: this.calificacionesText, done: false };
