@@ -14,15 +14,14 @@
       <ion-button fill="clear" color="primary" (click)="editCalificacion(calificacion)">Edit
         <ion-icon name="create"></ion-icon>
       </ion-button>
-      <ion-button fill="clear" color="danger"
-        (click)="calificacion.id ? deleteCalificacion(calificacion.id) : null">Delete
+      <ion-button fill="clear" color="danger" (click)="calificacion.id ? deleteCal(calificacion.id) : null">Delete
         <ion-icon name="trash"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
 
   <ion-item>
-    <ion-input [(ngModel)]="calificacionText" placeholder="Nueva calificacion"></ion-input>
+    <ion-input [(ngModel)]="calificacionesText" placeholder="Nueva calificacion"></ion-input>
     <ion-button (click)="addCalificacion()">{{ editingCalificacionId ? 'Update' : 'Add' }}</ion-button>
   </ion-item>
 </ion-content>

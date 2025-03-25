@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Calificacion, calificacionesService } from '../calificaciones.service';
-import { AuthService } from '../auth.service'; 
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,11 +15,11 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class HomePage implements OnInit {
-  calificacionesText = ''; 
+  calificacionesText = '';
   calificaciones$: Observable<Calificacion[]> = new Observable(); // Cambiar a Observable para Firestore
-  editingCalificacionId: string | null = null; 
+  editingCalificacionId: string | null = null;
 
-  constructor(private calificacionService: calificacionesService, private authService: AuthService, private router: Router) {} 
+  constructor(private calificacionService: calificacionesService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.calificaciones$ = this.calificacionService.getCalificaciones(); // Obtener tareas desde Firestore
@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
 
       if (this.editingCalificacionId) {
         this.calificacionService.updateCalificacion(this.editingCalificacionId, { title: this.calificacionesText }).then(() => {
-          this.editingCalificacionId = null; 
+          this.editingCalificacionId = null;
           this.calificacionesText = '';
         });
       } else {
@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
     this.editingCalificacionId = calificacion.id || null;
   }
 
-  deletePostre(calificacionId: string) {
+  deleteCal(calificacionId: string) {
     this.calificacionService.deleteCalificacion(calificacionId);
   }
 
