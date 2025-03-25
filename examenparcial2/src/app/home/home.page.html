@@ -9,7 +9,7 @@
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let postre of postres$ | async">
+    <ion-item *ngFor="let calificacion of calificaciones$ | async">
       <ion-label>{{ calificacion.title }}</ion-label>
       <ion-button fill="clear" color="primary" (click)="editCalificacion(calificacion)">Edit
         <ion-icon name="create"></ion-icon>
